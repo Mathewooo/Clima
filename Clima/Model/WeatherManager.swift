@@ -9,7 +9,7 @@ protocol WeatherManagerDelegate {
 struct WeatherManager {
     var weatherDelegate: WeatherManagerDelegate?
     
-    let apiKey: String? = ProcessInfo.processInfo.environment["apiKey"]
+    let apiKey: String? = Keys.token
     lazy var weatherUrl: String = "https://api.openweathermap.org/data/2.5/weather?appid=\(apiKey ?? "|error|")"
         
     mutating func connectUrlAndUnitType() -> String {
